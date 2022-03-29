@@ -2,7 +2,7 @@
 
 function App() {
   return (
-    <div></div>
+    <div>Waluty v2</div>
   );
 }
 
