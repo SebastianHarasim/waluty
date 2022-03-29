@@ -2,7 +2,7 @@
 
 function App() {
   return (
-    <div>Wersja1</div>
+    <div>Wersja2</div>
   );
 }
 
