@@ -1,6 +1,9 @@
 import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
 
+
+
+
 const countryOptions = [
   { key: 'pl', value: 'pl', flag: 'pl', text: 'Poland' },
   { key: 'es', value: 'es', flag: 'es', text: 'Spain' },
@@ -8,6 +11,13 @@ const countryOptions = [
   { key: 'at', value: 'at', flag: 'at', text: 'Austria' },
   { key: 'gb', value: 'gb', flag: 'gb', text: 'England' }
 ]
+
+
+
+
+
+
+
 
 const DropdownExampleSearchSelection = () => (
   <Dropdown
@@ -18,5 +28,6 @@ const DropdownExampleSearchSelection = () => (
     options={countryOptions}
   />
 )
+
 
 export default DropdownExampleSearchSelection;
