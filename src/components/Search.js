@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+/*import React, { useState } from 'react'
 import { Dropdown } from 'semantic-ui-react'
 function Search()
 {
@@ -31,13 +31,17 @@ function Search()
 }
 
 export default Search;
+*/
 
-
-/*import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Select from 'react-select'
-import Flags from 'country-flag-icons/react/3x2'
-function Search()
-{
+
+
+
+
+
+/*
+function Search() {
   var countryOptions = [
     { value: 'PL', label: 'Poland' },
     { value: 'ES', label: 'Spain' },
@@ -47,22 +51,51 @@ function Search()
   ];
 
 
-  const [countryValue,ddlvalue]=useState(countryOptions.value);
-  const [countryLabel,ddllabel]=useState(countryOptions.label);
-  const ddlHandler = e =>
-  {
+  const [countryValue, ddlvalue] = useState(countryOptions.value);
+  const [countryLabel, ddllabel] = useState(countryOptions.label);
+  const ddlHandler = e => {
     ddlvalue(e.value);
     ddllabel(e.label);
   }
 
-  return(
+  return (
     <div>
       <Select options={countryOptions} onChange={ddlHandler}/>
       <h1>{countryValue}</h1>
       <h1>{countryLabel}</h1>
-      <Flags.US />
+      <ReactCountryFlag
+        countryCode={countryValue}
+        svg
+        style={{
+          width: '5em',
+          height: '4em',
+        }}
+        title="US"
+      />
+    </div>
+  );
+}
+*/
+
+
+function Search(props) {
+  const {
+    currencyOption
+  } = props
+
+
+  return (
+    <div>
+      <select>
+        {currencyOption.map((option, key ) => (
+          <option key= {key} value={option}>{option}</option>
+          
+        ))}
+      </select>
+      
     </div>
   );
 }
 
-export default Search;*/
+
+export default Search;
