@@ -2,7 +2,7 @@
     width: 100%;
 }
 .left {
-    width: 35%;
+    width: 34%;
     height: 350px;
     background-color: #ffffff;
     float: left;
@@ -14,10 +14,15 @@
 .left_search{
     width: 100%;
     height: 36px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .center{
     width: 10%;
     height: 1000px;
+    margin: 1%;
     background-color: #ffffff;
     text-align: center;
     float: left;
@@ -28,7 +33,7 @@
     width: 100%;
 }
 .right {
-    width: 35%;
+    width: 34%;
     height: 350px;
     background-color: #ffffff; 
     float: left;
@@ -40,4 +45,18 @@
 .right_search{
     width: 100%;
     height: 36px;
+    margin: 0;
+    display: flex;
+    float: left;
+    justify-content: center;
+    align-items: center;
+}
+.input {
+    border: 1px solid black;
+    border-radius: .3em;
+    padding: .25em;
+    width: 7em;
+}
+select {
+    margin-left: .3rem;
 }

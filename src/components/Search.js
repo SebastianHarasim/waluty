@@ -33,8 +33,7 @@ function Search()
 export default Search;
 */
 
-import React, { useState, useEffect } from 'react'
-import Select from 'react-select'
+import React from 'react'
 
 
 
@@ -80,19 +79,22 @@ function Search() {
 
 function Search(props) {
   const {
-    currencyOption
+    currencyOption,
+    selectCurrency,
+    changeCurrency,
+    amount,
+    onChangeAmount
   } = props
 
 
   return (
     <div>
-      <select>
-        {currencyOption.map((option, key ) => (
-          <option key= {key} value={option}>{option}</option>
-          
+      <input type="number" className="input" value={amount} onChange={onChangeAmount}/>
+      <select value={selectCurrency} onChange={changeCurrency}>
+        {currencyOption.map((option, index) => (
+          <option key= {index} value={option}>{option}</option>
         ))}
       </select>
-      
     </div>
   );
 }
