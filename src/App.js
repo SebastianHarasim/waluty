@@ -83,21 +83,15 @@ function App() {
   return (
 
     <div className="main">
+      <div className="top">Konwerter Euro na dowolną inną walutę</div>
       <div className="left">
         <div className="left_search">
-          <Search
-            currencyOption={currencyOption}
-            selectCurrency={fromCurrency}
-            changeCurrency={e => setFromCurrency(e.target.value)}
-            onChangeAmount={handleFromAmountChange}
-            amount={fromAmount}
-          />
+          <input type="number" className="input" value={fromAmount} onChange={handleFromAmountChange}/>
+          <div className="EUR">EUR</div>
         </div>
       </div>
       <div className="center">
-        <button className="ui primary button">
-          Zmień
-        </button>
+        
 
       </div>
       <div className="right">
