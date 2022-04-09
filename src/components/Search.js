@@ -87,17 +87,21 @@ function Search(props) {
 
 
   return (
-    <div>
+    //<input type="number" className="input" value={amount} onChange={onChangeAmount}/>
+    //<img src={`/flags/${selectCurrency}.png`}/>
+    <div className= "custom-select">
+      
       <input type="number" className="input" value={amount} onChange={onChangeAmount}/>
       <select value={selectCurrency} onChange={changeCurrency}>
         {currencyOption.map((option, index) => (
-          <option key= {index} value={option}>{option}<img src={`/flags/${selectCurrency}.png`}/></option>
+          <option key= {index} value={option}>{option}</option>
         ))}
-        
+       <span className='custom-arrow'></span> 
       </select>
       
-      
+      <img src={`/flags/${selectCurrency}.png`} alt="Brak"/>
     </div>
+    
   );
 }
 

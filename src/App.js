@@ -8,26 +8,26 @@ import './App.css';
 
 function App() {
 
-/*
+  /*
+    //flaga
+    const [flagURL, setFlagURL] = useState(
+      "https://countryflagsapi.com/png/"
+    );
+    const [identifier, setIdentifier] = useState("")
+  
+  
   //flaga
-  const [flagURL, setFlagURL] = useState(
-    "https://countryflagsapi.com/png/"
-  );
-  const [identifier, setIdentifier] = useState("")
-
-
-//flaga
-  const handleButtonClick = () => {
-    const url = "https://countryflagsapi.com/png/"
-    setFlagURL(url + identifier)
-  };
-*/
+    const handleButtonClick = () => {
+      const url = "https://countryflagsapi.com/png/"
+      setFlagURL(url + identifier)
+    };
+  */
 
   const URL = 'http://api.exchangeratesapi.io/v1/latest?'
 
   function params(paramsObj) {
     return new URLSearchParams({
-      access_key: '8212180f5da96fd82094a89218f3dd07',
+      access_key: '7565e81fec35c90619ff5db30a25bd61',
       ...paramsObj
     });
   }
@@ -62,8 +62,8 @@ function App() {
       })
   }, [])
 
-  useEffect(() =>{
-    if (fromCurrency != null && toCurrency != null){
+  useEffect(() => {
+    if (fromCurrency != null && toCurrency != null) {
       fetch(`${URL}${params(App)}&base=${fromCurrency}&symbols=${toCurrency}`)
         .then(res => res.json())
         .then(data => setExchangeRate(data.rates[toCurrency]))
@@ -83,31 +83,37 @@ function App() {
   return (
 
     <div className="main">
-      
-      <div className="top">Konwerter Euro na dowolną inną walutę</div>
+
+      <div className="top">KALKULATOR WALUT</div>
       <div className="left">
         <div className="left_search">
-          <input type="number" className="input" value={fromAmount} onChange={handleFromAmountChange}/>
-          <div className="EUR">EUR</div>
+          <input type="number" className="input" value={fromAmount} onChange={handleFromAmountChange} />
+          <select>
+    
+          <option >EUR</option>
+        
+       
+      </select>
+      <img src={`/flags/eur.png`} alt="Brak"/>
         </div>
       </div>
       <div className="center">
-        
+
 
       </div>
       <div className="right">
         <div className="right_search">
-        
+
           <Search
-            currencyOption={currencyOption} 
+            currencyOption={currencyOption}
             selectCurrency={toCurrency}
             changeCurrency={e => setToCurrency(e.target.value)}
             onChangeAmount={handleToAmountChange}
             amount={toAmount}
           />
-          
+
         </div>
-        
+
       </div>
 
     </div>
