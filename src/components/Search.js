@@ -38,7 +38,6 @@ import React from 'react'
 
 
 
-
 /*
 function Search() {
   var countryOptions = [
@@ -92,9 +91,12 @@ function Search(props) {
       <input type="number" className="input" value={amount} onChange={onChangeAmount}/>
       <select value={selectCurrency} onChange={changeCurrency}>
         {currencyOption.map((option, index) => (
-          <option key= {index} value={option}>{option}</option>
+          <option key= {index} value={option}>{option}<img src={`/flags/${selectCurrency}.png`}/></option>
         ))}
+        
       </select>
+      
+      
     </div>
   );
 }

@@ -83,6 +83,7 @@ function App() {
   return (
 
     <div className="main">
+      
       <div className="top">Konwerter Euro na dowolną inną walutę</div>
       <div className="left">
         <div className="left_search">
@@ -96,6 +97,7 @@ function App() {
       </div>
       <div className="right">
         <div className="right_search">
+        
           <Search
             currencyOption={currencyOption} 
             selectCurrency={toCurrency}
@@ -103,7 +105,9 @@ function App() {
             onChangeAmount={handleToAmountChange}
             amount={toAmount}
           />
+          
         </div>
+        
       </div>
 
     </div>
