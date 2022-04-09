@@ -44,7 +44,7 @@ function App() {
   let toAmount, fromAmount
   if (amountFromCurrency) {
     fromAmount = amount
-    toAmount = amount * exchangeRate
+    toAmount = amount * exchangeRate || 0
   } else {
     toAmount = amount
     fromAmount = amount / exchangeRate
