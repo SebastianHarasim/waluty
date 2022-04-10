@@ -8,21 +8,6 @@ import './App.css';
 
 function App() {
 
-  /*
-    //flaga
-    const [flagURL, setFlagURL] = useState(
-      "https://countryflagsapi.com/png/"
-    );
-    const [identifier, setIdentifier] = useState("")
-  
-  
-  //flaga
-    const handleButtonClick = () => {
-      const url = "https://countryflagsapi.com/png/"
-      setFlagURL(url + identifier)
-    };
-  */
-
   const URL = 'http://api.exchangeratesapi.io/v1/latest?'
 
   function params(paramsObj) {
@@ -36,10 +21,15 @@ function App() {
 
   const [currencyOption, setCurrencyOption] = useState([])
   const [fromCurrency, setFromCurrency] = useState()
+  const [plCurrency, setPLCurrency] = useState()
+  const [plExchangeRate, setPLExchangeRate] = useState()
   const [toCurrency, setToCurrency] = useState()
   const [exchangeRate, setExchangeRate] = useState()
   const [amount, setAmount] = useState(1)
   const [amountFromCurrency, setAmountFromCurrency] = useState(true)
+
+  const plAmount = 1 * plExchangeRate
+  const eurAmount = 1 / plExchangeRate
 
   let toAmount, fromAmount
   if (amountFromCurrency) {
@@ -55,10 +45,13 @@ function App() {
       .then(res => res.json())
       .then(data => {
         const firstCurrency = Object.keys(data.rates)[0]
+        const polishCurrency = Object.keys(data.rates)[117]
         setCurrencyOption([data.base, ...Object.keys(data.rates)])
         setFromCurrency(data.base)
         setToCurrency(firstCurrency)
+        setPLCurrency(polishCurrency)
         setExchangeRate(data.rates[firstCurrency])
+        setPLExchangeRate(data.rates[polishCurrency])
       })
   }, [])
 
@@ -79,7 +72,6 @@ function App() {
     setAmount(e.target.value)
     setAmountFromCurrency(false)
   }
-
   return (
 
     <div className="main">
@@ -98,8 +90,8 @@ function App() {
         </div>
       </div>
       <div className="center">
-
-
+        1 EUR = {plAmount} PLN
+        1 PLN = {Number((eurAmount).toFixed(6))} EUR
       </div>
       <div className="right">
         <div className="right_search">
@@ -117,8 +109,6 @@ function App() {
       </div>
 
     </div>
-
-
 
   );
 }
