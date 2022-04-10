@@ -21,15 +21,13 @@ function App() {
 
   const [currencyOption, setCurrencyOption] = useState([])
   const [fromCurrency, setFromCurrency] = useState()
-  const [plCurrency, setPLCurrency] = useState()
-  const [plExchangeRate, setPLExchangeRate] = useState()
   const [toCurrency, setToCurrency] = useState()
   const [exchangeRate, setExchangeRate] = useState()
   const [amount, setAmount] = useState(1)
   const [amountFromCurrency, setAmountFromCurrency] = useState(true)
 
-  const plAmount = 1 * plExchangeRate
-  const eurAmount = 1 / plExchangeRate
+  const oneAmount = 1 * exchangeRate
+  const eurAmount = 1 / exchangeRate
 
   let toAmount, fromAmount
   if (amountFromCurrency) {
@@ -45,13 +43,10 @@ function App() {
       .then(res => res.json())
       .then(data => {
         const firstCurrency = Object.keys(data.rates)[0]
-        const polishCurrency = Object.keys(data.rates)[117]
         setCurrencyOption([data.base, ...Object.keys(data.rates)])
         setFromCurrency(data.base)
         setToCurrency(firstCurrency)
-        setPLCurrency(polishCurrency)
         setExchangeRate(data.rates[firstCurrency])
-        setPLExchangeRate(data.rates[polishCurrency])
       })
   }, [])
 
@@ -90,8 +85,8 @@ function App() {
         </div>
       </div>
       <div className="center">
-        1 EUR = {plAmount} PLN
-        1 PLN = {Number((eurAmount).toFixed(6))} EUR
+        1 EUR = {oneAmount} {toCurrency}
+        1 {toCurrency} = {Number((eurAmount).toFixed(6))} EUR
       </div>
       <div className="right">
         <div className="right_search">
