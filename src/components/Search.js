@@ -24,7 +24,7 @@ function Search(props) {
        <span className='custom-arrow'></span> 
       </select>
       
-      <img src={`/flags/${selectCurrency}.png`} alt="Brak"/>
+      
     </div>
     
   );

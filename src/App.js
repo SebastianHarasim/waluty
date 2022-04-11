@@ -12,7 +12,7 @@ function App() {
 
   function params(paramsObj) {
     return new URLSearchParams({
-      access_key: '7565e81fec35c90619ff5db30a25bd61',
+      access_key: 'cc6543cc8c859c21f93cf63a2a2c6002',
       ...paramsObj
     });
   }
@@ -71,26 +71,27 @@ function App() {
 
     <div className="main">
 
-      <div className="top">KALKULATOR WALUT</div>
-      <div className="left">
-        <div className="left_search">
-          <input type="number" className="input" value={fromAmount} onChange={handleFromAmountChange} />
-          <select>
-    
-          <option >EUR</option>
-        
-       
-      </select>
-      <img src={`/flags/eur.png`} alt="Brak"/>
-        </div>
-      </div>
-      <div className="center">
-        1 EUR = {oneAmount} {toCurrency}
-        1 {toCurrency} = {Number((eurAmount).toFixed(6))} EUR
-      </div>
-      <div className="right">
-        <div className="right_search">
 
+      <div className="left">
+        <div className="top">Currency calculator</div>
+        <div className="first-option">
+          <input type="number" className="first-input" value={fromAmount} onChange={handleFromAmountChange} />
+          <select>
+
+            <option >EUR</option>
+
+
+          </select>
+        </div>
+
+        <div className="first-flag">
+          <div className="first-flag-block">
+            <img src="/flags/eur.png" alt="Brak" />
+            <p>1 EUR = {oneAmount} {toCurrency}</p>
+          </div>
+        </div>
+
+        <div className="second-option">
           <Search
             currencyOption={currencyOption}
             selectCurrency={toCurrency}
@@ -98,11 +99,20 @@ function App() {
             onChangeAmount={handleToAmountChange}
             amount={toAmount}
           />
-
+        </div>
+        <div className="second-flag">
+        
+        <div className="second-flag-block">
+            <img src={`/flags/${toCurrency}.png`} onError={(e)=>{e.target.onerror = null; e.target.src="/flags/error.png"}}/>
+            <p>1 {toCurrency} = {Number((eurAmount))} EUR</p>
+          </div>
+        </div>
+        <div className="footer">
+          <p>Create by Sebastian Harasim & Dominik Gwizdała</p>
         </div>
 
       </div>
-
+      
     </div>
 
   );
