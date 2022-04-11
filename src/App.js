@@ -108,7 +108,7 @@ function App() {
           </div>
         </div>
         <div className="footer">
-          <p>Create by Sebastian Harasim & Dominik Gwizdała</p>
+          <p>Created by Sebastian Harasim & Dominik Gwizdała</p>
         </div>
 
       </div>
